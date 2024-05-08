@@ -44,20 +44,22 @@ class _HomeViewState extends State<HomeView> {
               children: _screens,
             ),
             bottomNavigationBar: BottomNavigationBar(
+              backgroundColor: Colors.greenAccent,
+              selectedItemColor: Colors.red,
               currentIndex: state.homeModelData.indexPage ?? 0,
               onTap: (index) {context.read<HomeController>().changeIndex(index);},
               items: const [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: 'Screen 1',
+                  icon: Icon(Icons.play_circle_outline_outlined),
+                  label: 'Play/Pause',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.search),
-                  label: 'Screen 2',
+                  icon: Icon(Icons.map),
+                  label: 'Map',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Screen 3',
+                  icon: Icon(Icons.smart_button),
+                  label: 'Rate/Share/Contact',
                 ),
               ],
             ),

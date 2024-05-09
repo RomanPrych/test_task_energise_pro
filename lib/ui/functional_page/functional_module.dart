@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:test_task_energise_pro/common/extensions/s_extension.dart';
+import 'package:test_task_energise_pro/common/extensions/s_keys.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FunctionalModule extends StatelessWidget {
@@ -14,7 +16,7 @@ class FunctionalModule extends StatelessWidget {
         child: Column(
           children: [
             _buttonWidget(
-                label: 'Rate App',
+                label: context.s(rateApp),
                 onTap: () async {
                   final InAppReview _inAppReview = InAppReview.instance;
                   if (await _inAppReview.isAvailable()) {
@@ -24,7 +26,7 @@ class FunctionalModule extends StatelessWidget {
                   }
                 }),
             _buttonWidget(
-                label: 'Share App',
+                label: context.s(shareApp),
                 onTap: () {
                   Share.share(
                       'check out  https://energise.notion.site/Flutter-f86d340cadb34e9cb1ef092df4e566b7');

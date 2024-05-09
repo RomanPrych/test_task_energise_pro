@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_task_energise_pro/common/localization/locate_provider.dart';
 import 'package:test_task_energise_pro/ui/functional_page/functional_module.dart';
 import 'package:test_task_energise_pro/ui/home/home_controller.dart';
 import 'package:test_task_energise_pro/ui/home/home_state.dart';
@@ -26,6 +27,11 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeController, HomeState>(
+      listener: (BuildContext context, Object? state) {
+        if (state is HomeStateData) {
+          context.read<LocaleProvider>().setLocale(state.homeModelData.appLocale);
+        }
+      },
       buildWhen: (_, __) {
         if (__ is LoadingHomeState || __ is HomeStateData) {
           return true;
@@ -36,7 +42,12 @@ class _HomeViewState extends State<HomeView> {
       builder: (BuildContext context, state) {
         if (state is HomeStateData) {
           return Scaffold(
-            appBar: AppBarChangeLanguage(callBack: (_)=>print(_.value),),
+            appBar: AppBarChangeLanguage(
+              currentLocaleInApp: state.homeModelData.appLocale,
+              callBack: (_) {
+                context.read<HomeController>().changeData(appLocale: _);
+              },
+            ),
             body: FadeIndexedStack(
               curve: Curves.bounceInOut,
               duration: const Duration(seconds: 3),
@@ -47,7 +58,11 @@ class _HomeViewState extends State<HomeView> {
               backgroundColor: Colors.greenAccent,
               selectedItemColor: Colors.red,
               currentIndex: state.homeModelData.indexPage ?? 0,
-              onTap: (index) {context.read<HomeController>().changeIndex(index);},
+              onTap: (index) {
+                context.read<HomeController>().changeData(
+                      index: index,
+                    );
+              },
               items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.play_circle_outline_outlined),
@@ -67,11 +82,6 @@ class _HomeViewState extends State<HomeView> {
         } else {
           return const LoadingWidget();
         }
-      },
-      listener: (BuildContext context, Object? state) {
-    if (state is HomeStateData) {
-      print(state.homeModelData.indexPage);
-    }
       },
     );
   }

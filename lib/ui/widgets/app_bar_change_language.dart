@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_task_energise_pro/common/enums/supported_locales.dart';
+import 'package:test_task_energise_pro/common/extensions/s_extension.dart';
+import 'package:test_task_energise_pro/common/extensions/s_keys.dart';
 
 class AppBarChangeLanguage extends StatelessWidget
     implements PreferredSizeWidget {
@@ -14,14 +16,14 @@ class AppBarChangeLanguage extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.greenAccent,
-      title: _titleWidget(),
+      title: _titleWidget(context),
     );
   }
 
-  Row _titleWidget() {
+  Row _titleWidget(BuildContext context) {
     return Row(
       children: [
-        const Text('Change language:'),
+         Text(context.s(changeLanguage)),
         ...SupportedLocales.values.map(
           (e) => _buttonWidget(e),
         ),

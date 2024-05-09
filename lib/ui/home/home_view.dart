@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_task_energise_pro/common/extensions/s_extension.dart';
+import 'package:test_task_energise_pro/common/extensions/s_keys.dart';
 import 'package:test_task_energise_pro/common/localization/locate_provider.dart';
 import 'package:test_task_energise_pro/ui/functional_page/functional_module.dart';
 import 'package:test_task_energise_pro/ui/home/home_controller.dart';
@@ -63,18 +65,18 @@ class _HomeViewState extends State<HomeView> {
                       index: index,
                     );
               },
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.play_circle_outline_outlined),
-                  label: 'Play/Pause',
+                  icon: const Icon(Icons.play_circle_outline_outlined),
+                  label: context.s(playPause),
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.map),
-                  label: 'Map',
+                 BottomNavigationBarItem(
+                  icon:const Icon(Icons.map),
+                  label: context.s(map),
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.smart_button),
-                  label: 'Rate/Share/Contact',
+                 BottomNavigationBarItem(
+                  icon:const Icon(Icons.smart_button),
+                  label: context.s(rateApp),
                 ),
               ],
             ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_energise_pro/common/extensions/s_extension.dart';
+import 'package:test_task_energise_pro/common/extensions/s_keys.dart';
 import 'package:test_task_energise_pro/data/models/ip_response.dart';
 
 class IpInfoWidget extends StatelessWidget {
@@ -10,18 +12,18 @@ class IpInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        _item('country', model?.country),
-        _item('countryCode', model?.countryCode),
-        _item('region', model?.region),
-        _item('regionName', model?.regionName),
-        _item('city', model?.city),
-        _item('zip', model?.zip),
-        _item('timezone', model?.timezone),
-        _item('organization', model?.org),
-        _item('organization full name', model?.isp),
-        _item('organization name', model?.ipResponseModelAs),
-        _item('ip', model?.query),
+      children: [//context.s()
+        _item(context.s(country), model?.country),
+        _item(context.s(countryCode), model?.countryCode),
+        _item(context.s(region), model?.region),
+        _item(context.s(regionName), model?.regionName),
+        _item(context.s(city), model?.city),
+        _item(context.s(zip), model?.zip),
+        _item(context.s(timezone), model?.timezone),
+        _item(context.s(organization), model?.org),
+        _item(context.s(organizationFullName), model?.isp),
+        _item(context.s(organizationName), model?.ipResponseModelAs),
+        _item('IP', model?.query),
       ],
     );
   }

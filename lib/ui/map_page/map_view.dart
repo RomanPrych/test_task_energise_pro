@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_task_energise_pro/common/extensions/s_extension.dart';
+import 'package:test_task_energise_pro/common/extensions/s_keys.dart';
 import 'package:test_task_energise_pro/ui/map_page/map_controller.dart';
 import 'package:test_task_energise_pro/ui/map_page/map_state.dart';
 import 'package:test_task_energise_pro/ui/map_page/widgets/ip_info_widget.dart';
@@ -36,7 +38,7 @@ class MapView extends StatelessWidget {
                   color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Text('Reload'),
+                child: Text(context.s(reload)),
               ),),
               ],
             ),

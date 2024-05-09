@@ -1,4 +1,21 @@
 {
   "rate_app": "Bewertungs App",
-  "share_app": "App Teilen"
+  "share_app": "App Teilen",
+  "contact_us": "Kontaktiere uns",
+  "change_language": "Sprache ändern:",
+  "play": "SPIELEN",
+  "pause": "PAUSE",
+  "play_pause": "Spielen/Pause",
+  "map": "Karte",
+  "reload": "Neu laden",
+  "country": "Land",
+  "country_code": "Landesvorwahl",
+  "region": "Region",
+  "region_name": "Regionsname",
+  "city": "Stadt",
+  "zip": "REISSVERSCHLUSS",
+  "timezone": "Zeitzone",
+  "organization": "Organisation",
+  "organization_full_name": "Vollständiger name der organisation",
+  "organization_name": "Name der organisation"
 }

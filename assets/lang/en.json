@@ -1,4 +1,21 @@
 {
   "rate_app": "Rate App",
-  "share_app": "Share App"
+  "share_app": "Share App",
+  "contact_us": "Contact us",
+  "change_language": "Change language:",
+  "play": "PLAY",
+  "pause": "PAUSE",
+  "play_pause": "Play/Pause",
+  "map": "Map",
+  "reload": "Reload",
+  "country": "Country",
+  "country_code": "Country code",
+  "region": "Region",
+  "region_name": "Region name",
+  "city": "City",
+  "zip": "ZIP",
+  "timezone": "Timezone",
+  "organization": "Organization",
+  "organization_full_name": "Organization full name",
+  "organization_name": "Organization name"
 }

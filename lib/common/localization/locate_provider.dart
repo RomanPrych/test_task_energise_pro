@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:test_task_energise_pro/common/constants.dart';
 import 'package:test_task_energise_pro/common/di/di.dart';
 import 'package:test_task_energise_pro/common/enums/supported_locales.dart';
-import 'package:test_task_energise_pro/common/localization/app_locale.dart';
+import 'package:test_task_energise_pro/common/extensions/string_extension.dart';
+import 'package:test_task_energise_pro/common/extensions/app_locale.dart';
 import 'package:test_task_energise_pro/data/repo/shared_preferences/shared_preference.dart';
 
 class LocaleProvider extends ChangeNotifier {
@@ -29,7 +30,7 @@ class LocaleProvider extends ChangeNotifier {
   }
 
   Future<void> _saveLocale(SupportedLocales? appLocale) async {
-    if(appLocale == null){print('return');
+    if(appLocale == null){
       return;
     }
     await sharedPreference.setStringPreferenceValue(

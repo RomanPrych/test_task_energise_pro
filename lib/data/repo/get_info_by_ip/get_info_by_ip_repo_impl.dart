@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:test_task_energise_pro/common/di/di.dart';
 import 'package:test_task_energise_pro/data/models/ip_response.dart';
 import 'package:test_task_energise_pro/data/repo/get_info_by_ip/get_info_by_ip_repo.dart';
@@ -14,13 +15,12 @@ class GetInfoByIpRepoImpl implements GetInfoByIpRepo {
       }
       var response = await dio.get('http://ip-api.com/json/$ip');
       if (response.statusCode == 200) {
-        print(response.data);
         return IpResponseModel.fromJson(response.data);
       } else {
         return null;
       }
     } catch (e) {
-      print("ERROR GetInfoByIpRepoImpl =$e");
+      debugPrint("ERROR GetInfoByIpRepoImpl =$e");
       return null;
     }
   }

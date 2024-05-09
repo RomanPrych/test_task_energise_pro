@@ -16,7 +16,7 @@ class IpInfoDatabaseImpl implements IpInfoDatabase {
         await init.storeRef.record(0).add(init.dataBase, model?.toJson());
         return await _isExist(0);
       } catch (e) {
-        print('⚠⚠⚠ addIpInfoModel error =  $e');
+        debugPrint('⚠⚠⚠ addIpInfoModel error =  $e');
         return false;
       }
   }
